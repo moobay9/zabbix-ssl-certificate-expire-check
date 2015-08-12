@@ -12,13 +12,17 @@ zabbix 用 SSL 有効期限 確認スクリプト
 
 
 ```
-  cd  /path/to/zabbix/alertscripts  
+  cd  /path/to/zabbix/externalscripts/  
   git clone https://github.com/moobay9/zabbix-ssl-certificate-expire-check.git
-  chmod +x zabbix-ssl-certificate-expire-check/checker
+  chmod +x zabbix-ssl-certificate-expire-check/ssl_checker
+  mv ssl_checker ssl_checker
 ```
   1. git からクローンする  
     * 上記コマンドを参照
 
 
+  2. アイテムへの追加
 
+  - 外部チェック
+  - ssl_checker["{$URL}"] のような形で設定する
 
