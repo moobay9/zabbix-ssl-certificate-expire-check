@@ -10,7 +10,7 @@ fi
 
 TARGET_URL=$1
 
-EXP_DAY=`openssl s_client -connect "${TARGET_URL}:443" -servername "${TARGET_URL}" < /dev/null 2> /dev/null | openssl x509 -text 2> /dev/null | grep "Not After" | sed -e 's/^ *//g' | cut -d " " -f 4,5,6,7,8`
+EXP_DAY=`openssl s_client -4 -connect "${TARGET_URL}:443" -servername "${TARGET_URL}" < /dev/null 2> /dev/null | openssl x509 -text 2> /dev/null | grep "Not After" | sed -e 's/^ *//g' | cut -d " " -f 4,5,6,7,8`
 
 NOW_TIME=`date +%s`
 EXP_TIME=`date +%s -d "${EXP_DAY}"`
